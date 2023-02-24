@@ -38,12 +38,13 @@ Step Three:
 function pairSum(arr) {
     const twoLargestNums = [];
 
-    for (let i = 0; i < 2; i++) {
-        twoLargestNums.push(Math.max(...arr));
-        let largestNum = twoLargestNums[0];
-        let index = arr.indexOf(largestNum);     // 3
-        arr.splice(index, 1);
-    }
+    // Get first largest num and remove it from arr
+    twoLargestNums.push(Math.max(...arr));
+    let largestNum = twoLargestNums[0];
+    let index = arr.indexOf(largestNum); 
+    arr.splice(index, 1);
+
+    twoLargestNums.push(Math.max(...arr));
 
     return twoLargestNums[0] + twoLargestNums[1];
 }
